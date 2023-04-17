@@ -47,4 +47,14 @@ dependencies {
     implementation("androidx.compose.material:material:1.3.1")
     implementation("androidx.activity:activity-compose:1.6.1")
     implementation("androidx.compose.material:material-icons-extended:1.3.1")
+
+
+    //navigation
+    var nav_version = "2.5.3"
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+    // Jetpack Compose Integration
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+
+    implementation ("com.google.mlkit:barcode-scanning:17.0.1")
 }

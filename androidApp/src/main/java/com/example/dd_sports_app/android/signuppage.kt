@@ -1,5 +1,6 @@
 package com.example.dd_sports_app.android
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -18,16 +19,18 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import com.example.dd_sports_app.android.navigation.screen
 
-@Preview
+
 @Composable
-fun SignUpPage() {
+fun SignUpPage(navController: NavHostController) {
     Surface(
         color = Color.Red,
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState()),
-        shape = RoundedCornerShape(20.dp)
+        
     ) {
         Box(
             modifier = Modifier.fillMaxSize(),
@@ -63,6 +66,8 @@ fun SignUpPage() {
                     ) {
                         Text(text = "Sign Up", color = Color.White)
                     }
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Text(text = "Already Registered , Sign In",Modifier.clickable{navController.navigate(screen.signin.route)})
                 }
             }
         }

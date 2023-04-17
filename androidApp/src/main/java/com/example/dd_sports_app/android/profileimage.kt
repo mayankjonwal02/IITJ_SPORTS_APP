@@ -7,7 +7,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PowerSettingsNew
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,9 +16,11 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import com.example.dd_sports_app.android.navigation.screen
 
 @Composable
-fun ProfilePage() {
+fun ProfilePage(navController: NavHostController) {
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier.fillMaxSize()
@@ -45,9 +46,9 @@ fun ProfilePage() {
                 color = Color.Gray
             )
             Spacer(modifier = Modifier.height(32.dp))
-            ChangePasswordButton(onClick = { /* Perform change password action */ })
+            ChangePasswordButton(onClick = { navController.navigate(screen.verify.route) })
             Spacer(modifier = Modifier.height(8.dp))
-            LogoutButton(onClick = { /* Perform logout action */ })
+            LogoutButton(onClick = { navController.navigate(screen.signin.route) })
         }
     }
 }
@@ -115,5 +116,5 @@ fun LogoutButton(onClick: () -> Unit) {
 @Preview
 @Composable
 fun PreviewProfilePage() {
-    ProfilePage()
+
 }

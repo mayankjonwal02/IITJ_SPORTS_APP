@@ -1,7 +1,6 @@
 package com.example.dd_sports_app.android
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -18,10 +17,13 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import com.example.dd_sports_app.android.navigation.screen
+
 //import com.example.jetpackcompose.R
 
 @Composable
-fun HomePage() {
+fun ListPage(navController: NavHostController) {
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier.fillMaxSize()
@@ -47,24 +49,29 @@ fun HomePage() {
             ) {
                 CircularButton(
                     text = "Check In",
-                    icon = Icons.Default.Home
+                    icon = Icons.Default.Home,
+                    onClick = { navController.navigate(screen.qrpage.route) }
                 ) { /* Perform check-in */ }
                 CircularButton(
                     text = "Check Out",
-                    icon = Icons.Default.DateRange
-                ) { /* Perform check-out */ }
+                    icon = Icons.Default.DateRange,
+                    onClick = { navController.navigate(screen.qrpage.route) }
+                ) { /* Perform check-in */ }
                 CircularButton(
                     text = "Availability",
-                    icon = Icons.Default.Person
-                ) { /* View availability */ }
+                    icon = Icons.Default.Person,
+                    onClick = { navController.navigate(screen.buttonpage.route) }
+                ) { /* Perform check-in */ }
                 CircularButton(
                     text = "Database",
-                    icon = Icons.Default.Storage
-                ) { /* Open database */ }
+                    icon = Icons.Default.Storage,
+                    { /* Open database */ }
+                ) { /* Perform check-in */ }
                 CircularButton(
                     text = "Profile",
-                    icon = Icons.Default.Person
-                ) { /* View profile */ }
+                    icon = Icons.Default.Person,
+                    onClick = { navController.navigate(screen.profile.route) }
+                ) { /* Perform check-in */ }
             }
         }
     }
@@ -74,7 +81,8 @@ fun HomePage() {
 fun CircularButton(
     text: String,
     icon: ImageVector,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    function: () -> Unit
 ) {
     Button(
         onClick = onClick,
@@ -106,5 +114,5 @@ fun CircularButton(
 @Preview
 @Composable
 fun PreviewHomePage() {
-    HomePage()
+
 }

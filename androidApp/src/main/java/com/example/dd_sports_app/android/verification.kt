@@ -13,12 +13,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 
 @Composable
-fun VerificationPage() {
+fun VerificationPage(navController: NavHostController) {
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier.fillMaxSize()
@@ -88,7 +88,7 @@ fun VerificationPage() {
                 )
                 Spacer(modifier = Modifier.width(4.dp))
                 Text(
-                    text = "Verify",
+                    text = "Verify & Confirm",
                     style = MaterialTheme.typography.button,
                     color = Color.White
                 )
@@ -100,5 +100,5 @@ fun VerificationPage() {
 @Preview
 @Composable
 fun PreviewVerificationPage() {
-    VerificationPage()
+
 }

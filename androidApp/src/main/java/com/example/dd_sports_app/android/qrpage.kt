@@ -18,9 +18,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+
 @Preview
 @Composable
-fun ScanQRCodePage() {
+fun ScanQRCodePage(navController: NavHostController) {
     // TODO: Implement QR code scanning functionality
 
     Box(
